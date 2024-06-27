@@ -2,19 +2,21 @@ numbers = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
 primes = []
 not_primes = []
 
-a = len(numbers)
-
 for i in range(a):
-    d = 0
-    for j in range(1, i + 1):
+    if i == 1:
+        continue
+    is_primes = True
+    for j in range(2, i):
 
         if i % j == 0:
-            d += 1
-    if d == 2:
+            is_primes = False
+            break
+            
+    if is_primes:
         primes.append(i)
     else:
         not_primes.append(i)
 
 print('Primes:',primes )
 
-print('Not Primes:',not_primes[2::])
+print('Not Primes:',not_primes)
